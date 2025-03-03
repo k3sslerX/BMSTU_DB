@@ -14,8 +14,7 @@ drop table if exists json_data;
 create table json_data(data json);
 
 -- Копируем данные JSON из файла в созданную таблицу
-copy json_data(data)
-from '/Users/k3ssler/BMSTU/DB/lab5/json_files/engines.json';
+\copy json_data(data) from '/Users/k3ssler/BMSTU/DB/lab5/json_files/engines.json';
 
 select *
 from json_data;
@@ -74,8 +73,7 @@ from cars;
 drop table if exists temp_table;
 create table if not exists temp_table(data json);
 
-copy temp_table
-from '/Users/k3ssler/BMSTU/DB/lab5/json_files/cars.json';
+\copy temp_table from '/Users/k3ssler/BMSTU/DB/lab5/json_files/cars.json';
 
 select *
 from temp_table;

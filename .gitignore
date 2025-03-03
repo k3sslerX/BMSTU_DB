@@ -1,3 +1,4 @@
 *.idea*
 *.bkp
 .DS_Store*
+*nifi-2.2.0*

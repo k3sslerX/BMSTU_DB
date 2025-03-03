@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS cars_engines;
+DROP TABLE IF EXISTS cars_prices;
+DROP TABLE IF EXISTS cars_engines_showrooms;
+DROP TABLE IF EXISTS cars;
+DROP TABLE IF EXISTS engines;
+DROP TABLE IF EXISTS showrooms;

@@ -1,0 +1,180 @@
+Mercedes-Benz
+W124 E-Class | Sedan | 1984 | 1995 | Petrol
+W210 E-Class | Sedan | 1995 | 2002 | Petrol
+W211 E-Class | Sedan | 2002 | 2009 | Petrol
+W212 E-Class | Sedan | 2009 | 2016 | Petrol
+W213 E-Class | Sedan | 2016 | 2024 | Petrol
+W214 E-Class | Sedan | 2023 | - | Petrol
+W116 S-Class | Sedan | 1972 | 1980 | Petrol
+W126 S-Class | Sedan | 1979 | 1985 | Petrol
+W140 S-Class | Sedan | 1991 | 1998 | Petrol
+W220 S-Class | Sedan | 1998 | 2005 | Petrol
+W221 S-Class | Sedan | 2005 | 2013 | Petrol
+W222 S-Class | Sedan | 2013 | 2017 | Petrol
+W223 S-Class | Sedan | 2020 | - | Petrol
+Maybach S-Class | Sedan | 2020 | - | Petrol
+W202 C-Class | Sedan | 1993 | 2000 | Petrol
+W203 C-Class | Sedan | 2000 | 2007 | Petrol
+W204 C-Class | Sedan | 2007 | 2014 | Petrol
+W205 C-Class | Sedan | 2014 | 2021 | Petrol
+W206 C-Class | Sedan | 2021 | - | Petrol
+W460 G-Class | Crossover | 1979 | 1990 | Petrol
+W461 G-Class | Crossover | 1990 | 2001 | Petrol
+W463 G-Class | Crossover | 1990 | 2018 | Petrol
+W464 G-Class | Crossover | 2018 | - | Petrol
+AMG ONE | Supercar | 2022 | - | Petrol
+EQS | Sedan | 2021 | - | Electro
+EQG | Crossover | 2017 | - | Electro
+---
+BMW
+2-series F22 | Sedan | 2013 | - | Petrol
+2-series F23 | Cabriolet | 2014 | - | Petrol
+2-series F45 | Hatchback | 2014 | - | Petrol
+2-series F46 | Hatchback | 2015 | - | Petrol
+M2 Coupe G42 | Coupe | 2018 | - | Petrol
+M2 Competition F87 | Sedan | 2018 | - | Petrol
+3-series E21 | Sedan | 1975 | 1983 | Petrol
+3-series E30 | Sedan | 1982 | 1994 | Petrol
+3-series E36 | Sedan | 1990 | 2000 | Petrol
+3-series E46 | Sedan | 1997 | 2006 | Petrol
+3-series E90 | Sedan | 2005 | 2013 | Petrol
+3-series F30 | Sedan | 2012 | 2019 | Petrol
+3-series G20 | Sedan | 2018 | - | Petrol
+M3 E30 | Coupe | 1986 | 1992 | Petrol
+M3 E36 | Sedan | 1992 | 1999 | Petrol
+M3 E46 | Sedan | 2000 | 2006 | Petrol
+M3 F80 | Sedan | 2014 | 2020 | Petrol
+M3 G80 | Sedan | 2020 | - | Petrol
+4-series F33 | Cabriolet | 2013 | 2020 | Petrol
+4-series F36 | Sedan | 2013 | 2020 | Petrol
+4-series F82 | Coupe | 2014 | 2020 | Petrol
+M4 F82 | Sedan | 2014 | 2020 | Petrol
+M4 G82 | Sedan | 2020 | - | Petrol
+5-series E12 | Sedan | 1972 | 1984 | Petrol
+5-series E28 | Sedan | 1981 | 1988 | Petrol
+5-series E34 | Sedan | 1988 | 1996 | Petrol
+5-series E39 | Sedan | 1995 | 2003 | Petrol
+5-series E60 | Sedan | 2003 | 2010 | Petrol
+5-series F10 | Sedan | 2010 | 2017 | Petrol
+5-series G30 | Sedan | 2017 | 2024 | Petrol
+M5 E34 | Sedan | 1988 | 1995 | Petrol
+M5 E39 | Sedan | 1998 | 2003 | Petrol
+M5 E60 | Sedan | 2005 | 2008 | Petrol
+M5 F10 | Sedan | 2011 | 2017 | Petrol
+M5 F90 | Sedan | 2017 | 2024 | Petrol
+M5 G90 | Sedan | 2024 | - | Hybrid
+M5 CS | Sedan | 2021 | 2023 | Petrol
+BMW X1 | Crossover | 2015 | 2022 | Petrol
+BMW X2 | Crossover | 2017 | - | Petrol
+BMW X3 | Crossover | 2003 | - | Petrol
+BMW X4 | Crossover | 2014 | 2018 | Petrol
+BMW X5 E53 | Crossover | 1999 | 2006 | Petrol
+BMW X5 E70 | Crossover | 2006 | 2013 | Petrol
+BMW X5 F15 | Crossover | 2013 | 2018 | Petrol
+BMW X5 G05 | Crossover | 2018 | - | Petrol
+BMW X6 | Crossover | 2007 | - | Petrol
+BMW X7 | Crossover | 2018 | - | Petrol
+BMW iX | Crossover | 2022 | - | Electro
+BMW XM | Crossover | 2023 | - | Petrol
+BMW i8 | Coupe | 2014 | 2020 | Hybrid
+---
+Audi
+S3 | Sedan |
+A4 | Sedan | 1995 | - | Petrol
+A5 | Sedan | 2007 | - | Petrol
+A7 | Sedan | 2010 | - | Petrol
+A6 | Sedan | 1994 | - | Petrol
+Q7 | Crossover | 2005 | - | Petrol
+Q8 | Crossover | 2018 | - | Petrol
+RS5 | Sedan | 2010 | - | Petrol
+RS6 | Sedan | 2002 | - | Petrol
+RS7 | Sedan | 2013 | - | Petrol
+RSQ8 | Crossover | 2024 | - | Petrol
+R8 | Coupe | 2007 | - | Petrol
+TT | Cabriolet | 1998 | - | Petrol
+E-Tron | Sedan | 2020 | - | Electro
+---
+Tesla
+Model S | Sedan | 2012 | - | Electro
+Model 3 | Sedan | 2016 | - | Electro
+Model X | Crossover | 2015 | - | Electro
+Model Y | Crossover | 2019 | - | Electro
+Cybertruck | Pickup track | 2024 | - | Electro
+---
+Porsche
+918 | Supercar | 2013 | 2015 | Hybrid
+Cayman | Coupe | 2005 | - | Petrol
+Boxster | Cabriolet | 1996 | - | Petrol
+Carrera | Coupe | 1978 | 1983 | Petrol
+Cayenne | Crossover | 2002 | - | Petrol
+Macan | Crossover | 2014 | - | Petrol
+Macan EV | Crossover | 2024 | - | Electro
+Taycan | Sedan | 2019 | - | Electro
+Panamera | Sedan | 2009 | - | Petrol
+911 | Coupe | 1963 | - | Petrol
+---
+Lamborghini
+Countach | Supercar | 1974 | 1990 | Petrol
+Urus | Crossover | 2018 | - | Petrol
+Essenza | Supercar | 2021 | 2021 | Petrol
+Sian | Supercar | 2020 | 2020 | Petrol
+Revuelto | Supercar | 2023 | - | Petrol
+Reventon | Supercar | 2007 | 2009 | Petrol
+Aventador SVJ | Supercar | 2018 | 2022 | Petrol
+Aventador | Supercar | 2011 | 2021 | Petrol
+Veneno | Supercar | 2013 | 2013 | Petrol
+Huracan | Supercar | 2014 | - | Petrol
+Terzo | Supercar | 2017 | 2017 | Electro
+---
+Ferrari
+F12 Berlinetta | Hatchback | 2012 | 2017 | Petrol
+F812 Superfast | Hatchback | 2024 | Petrol
+Portofino | Cabriolet | 2017 | 2023 | Petrol
+296 | Coupe | 2021 | - | Petrol
+Monza | Cabriolet | 2018 | 2021 | Petrol
+Daytona SP3 | Supercar | 2022 | - | Petrol
+488 Pista | Coupe | 2015 | 2019 | Petrol
+SF90 Stradale | Coupe | 2019 | - | Hybrid
+Purosangue | Crossover | 2023 | - | Petrol
+LaFerrari | Supercar | 2013 | 2019 | Petrol
+F40 | Supercar | 1987 | 1992 | Petrol
+Roma | Supercar | 2020 | - | Petrol
+---
+Rolls-Royce
+Dawn | Cabriolet | 2015 | 2023 | Petrol
+Ghost | Sedan | 2009 | 2020 | Petrol
+Wraith | Sedan | 2013 | - | Petrol
+Phantom | Sedan | 1959 | - | Petrol
+Cullinan | Crossover | 2018 | - | Petrol
+---
+Koenigsegg
+CCX | Supercar | 2006 | 2010 | Petrol
+CCXR | Supercar | 2007 | 2010 | Petrol
+Agera | Supercar | 2010 | 2018 | Petrol
+One | Hypercar | 2014 | 2016 | Petrol
+Regera | Hypercar | 2017 | - | Hybrid
+Jesko | Supercar | 2019 | - | Petrol
+Gemera | Hypercar | 2024 | - | Hybrid
+CC850 | Supercar | 2024 | - | Petrol
+---
+Lotus
+Evija | Supercar | 2022 | - | Electro
+Exige | Coupe | 2000 | 2021 | Petrol
+Evora | Coupe | 2009 | 2021 | Petrol
+Eletre | Crossover | 2022 | - | Electro
+Emira | Supercar | 2021 | - | Petrol
+---
+Bugatti
+Veyron | Supercar | 2005 | 2015 | Petrol
+Chiron | Supercar | 2016 | - | Petrol
+Divo | Supercar | 2018 | 2021 | Petrol
+Centodieci | Supercar | 2019 | - | Petrol
+La Voiture Noire | 2019 | - | Petrol
+Bolide | Supercar | 2021 | 2021 | Petrol
+---
+Bentley
+Mulsanne | Sedan | 2010 | 2020 | Petrol
+Bacalar Mulliner | Cabriolet | 2020 | 2021 | Petrol
+Continental | Coupe | 2003 | - | Petrol
+Bentayga | Crossover | 2015 | - | Petrol
+---

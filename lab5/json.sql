@@ -8,17 +8,17 @@ select row_to_json(c_e_s) from cars_engines_showrooms c_e_s;
 
 -- Загружаем данные в файл
 copy (select row_to_json(c) from cars c)
-to 'C:/DB/json_files/cars.json';
+to '/Users/k3ssler/BMSTU/DB/lab5/json_files/cars.json';
 copy (select row_to_json(s) from showrooms s)
-to 'C:/DB/json_files/showrooms.json';
+to '/Users/k3ssler/BMSTU/DB/lab5/json_files/showrooms.json';
 copy (select row_to_json(e) from engines e)
-to 'C:/DB/json_files/engines.json';
+to '/Users/k3ssler/BMSTU/DB/lab5/json_files/engines.json';
 copy (select row_to_json(c_e) from cars_engines c_e)
-to 'C:/DB/json_files/cars_engines.json';
+to '/Users/k3ssler/BMSTU/DB/lab5/json_files/cars_engines.json';
 copy (select row_to_json(p) from cars_prices p)
-to 'C:/DB/json_files/prices.json';
+to '/Users/k3ssler/BMSTU/DB/lab5/json_files/prices.json';
 copy (select row_to_json(c_e_s) from cars_engines_showrooms c_e_s)
-to 'C:/DB/json_files/cars_engines_showrooms.json';
+to '/Users/k3ssler/BMSTU/DB/lab5/json_files/cars_engines_showrooms.json';
 
 
 -- 2. Создание таблицы по полученному JSON
@@ -29,7 +29,7 @@ create table json_data(data json);
 
 -- Копируем данные JSON из файла в созданную таблицу
 copy json_data(data)
-from 'C:/DB/json_files/engines.json';
+from '/Users/k3ssler/BMSTU/DB/lab5/json_files/engines.json';
 
 select *
 from json_data;
@@ -89,7 +89,7 @@ drop table if exists temp_table;
 create table if not exists temp_table(data json);
 
 copy temp_table
-from 'C:/DB/json_files/cars.json';
+from '/Users/k3ssler/BMSTU/DB/lab5/json_files/cars.json';
 
 select *
 from temp_table;

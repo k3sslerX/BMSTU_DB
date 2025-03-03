@@ -1,8 +1,4 @@
-import time
-
-
-def get_json(list, filename):
-    pass
+import time, datetime, json, random
 
 
 def generate_serial():
@@ -52,29 +48,21 @@ def generate_engines_data(engines_amount):
         else:
             engine_volume = 0
             engine_cylinders = 0
-        template_engines.append({'engine_serial': engine_serial, 'engine_type': engine_type,
-                                 'engine_power': engine_power, 'engine_cylinders': engine_cylinders,
-                                 'engine_volume': engine_volume})
+        template_engines.append({'engine_serial': engine_serial, 'type': engine_type,
+                                 'power': engine_power, 'cylinders': engine_cylinders,
+                                 'volume': engine_volume})
     print('Engines data - Successfully')
     return template_engines
-
-
-def generate_mask(filename, tablespace):
-    mask = ["engine_serial", "type", "power", "cylinders", "volume"]
-    return mask
 
 
 if __name__ == "__main__":
     number = 10
     count = 0
     while True:
-        filename = "engines_lab8.json"
+        filename = f"./json_files/{count}-{datetime.datetime.now()}-engines.json"
         tablespace = "engines"
         engines_dict = generate_engines_data(number)
-        engines_list = [generate_mask(filename, tablespace)]
-        for engine in engines_dict:
-            engines_list.append([engine['engine_serial'], engine['engine_type'], engine['engine_power'],
-                                 engine['engine_cylinders'], engine['engine_volume']])
-        get_json(engines_list, filename)
+        with open(filename, 'w') as file:
+            json.dump(engines_dict, file)
         count += 1
         time.sleep(300)

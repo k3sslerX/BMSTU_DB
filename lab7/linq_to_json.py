@@ -5,7 +5,7 @@ from linq_to_obj import Car
 
 def get_json_automobiles(con):
     cursor = con.cursor()
-    cursor.execute("copy (select row_to_json(c) from cars as c) to 'C:/DB/json_files/automobiles.json';")
+    cursor.execute("copy (select row_to_json(c) from cars as c) to '/Users/k3ssler/BMSTU/DB/lab7/json_files/cars.json';")
     print("Создание JSON для таблицы cars - success!")
     cursor.close()
 
@@ -58,7 +58,7 @@ def task_2():
     )
 
     get_json_automobiles(con)
-    filename = "../json_files/cars.json"
+    filename = "./json_files/cars.json"
 
     print("1. Чтение файла JSON")
     read_json(filename)

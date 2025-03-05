@@ -2,18 +2,19 @@ import psycopg2
 import redis
 import time
 import json
-from datetime import datetime
 import random
 from threading import Thread, Lock
 import matplotlib.pyplot as plt
 import os
-
+import string
 from config import *
-from gen_json_db_data import Data
 
 output_dir = "grhs"
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
+
+def generate_random_string(size=6, chars=string.ascii_uppercase + string.digits):
+    return ''.join(random.choice(chars) for _ in range(size))
 
 conn = psycopg2.connect(
     dbname=DB_NAME, 
@@ -23,20 +24,37 @@ conn = psycopg2.connect(
     port=DB_PORT
 )
 cursor = conn.cursor()
-flag = True
 
 r = redis.Redis(host='localhost', port=6379, db=0)
 
 cache_durations = []
 db_durations = []
+ids = []
 
 db_lock = Lock()
+flag = True
 
-def get_top_songs_from_db():
+
+def create_temp_table():
     cursor.execute("""
-        SELECT s.song_id, s.title, s.popularity
-        FROM songs s
-        ORDER BY popularity DESC
+        CREATE TABLE IF NOT EXISTS redis_table
+        (id INT,
+        name TEXT,
+        value BIGINT)""")
+    for i in range(3000):
+        cursor.execute(f"""
+                    INSERT INTO redis_table (id, name, value)
+                    VALUES (%s, %s, %s)
+            """, (i, generate_random_string(), random.randint(0, 1000)))
+        conn.commit()
+        ids.append(i)
+
+
+def get_top_data_from_db():
+    cursor.execute("""
+        SELECT id
+        FROM redis_table
+        ORDER BY value DESC
         LIMIT 10;
     """)
     try:
@@ -45,74 +63,58 @@ def get_top_songs_from_db():
         return None
 
 
-def cache_top_songs():
-    top_songs = get_top_songs_from_db()
-    r.setex('top_songs', 1800, json.dumps(top_songs))
+def cache_top_data():
+    top_data = get_top_data_from_db()
+    r.setex('top_data', 1800, json.dumps(top_data))
 
 
-def get_top_songs_from_cache():
+def get_top_data_from_cache():
     global flag
-    cached_data = r.get('top_songs')
+    cached_data = r.get('top_data')
 
     if cached_data and flag:
         return json.loads(cached_data)
     else:
         flag = True
-        cache_top_songs()
-        return get_top_songs_from_cache()
+        cache_top_data()
+        return get_top_data_from_cache()
 
 
-def add_random_song():
+def insert_random_data():
     global flag
-    cursor.execute("SELECT COALESCE(MAX(song_id), 0) + 1 FROM songs")
-    newID = cursor.fetchone()[0]
-
-    data = Data()
-    new_song = data.generate_song(1)
-    cursor.execute("""
-            INSERT INTO songs (song_id, title, duration, popularity, clip)
-            VALUES (%s, %s, %s, %s, %s)
-    """, (newID, new_song[1], new_song[2], new_song[3], new_song[4]))
+    new_id = len(ids)
+    cursor.execute(f"""
+            INSERT INTO redis_table (id, name, value)
+            VALUES (%s, %s, %s)
+    """, (new_id, generate_random_string(), random.randint(0, 1000)))
     conn.commit()
+    ids.append(new_id)
 
     flag = False
 
 
-def delete_random_song():
-    while True:
-        random_id = random.randint(1, 1000)
-        cursor.execute("SELECT COUNT(*) FROM songs WHERE song_id = %s", (random_id,))
-        exists = cursor.fetchone()[0] > 0
-        if exists:
-            cursor.execute('''
-                           DELETE FROM labels WHERE song_id = %s;
-                           DELETE FROM songs WHERE song_id = %s''', (random_id, random_id))
-            conn.commit()
-            global flag
-            flag = False
-            break
+def delete_random_data():
+    rand_id = random.choice(ids)
+    ids.remove(rand_id)
+    cursor.execute(f"DELETE FROM redis_table WHERE id = {rand_id}")
+    conn.commit()
+    global flag
+    flag = False
 
 
-def update_random_song():
-    prod_count = random.randint(1, 1000) 
-    while True:
-        random_id = random.randint(1, 1000)
-        cursor.execute("SELECT COUNT(*) FROM songs WHERE song_id = %s", (random_id,))
-        exists = cursor.fetchone()[0] > 0
-        if exists:
-            duration = random.randint(100, 1000)
-            cursor.execute("UPDATE songs SET duration = %s WHERE song_id = %s", (duration, random_id))
-            conn.commit()
-            global flag
-            flag = False
-            break
+def update_random_data():
+    cursor.execute("UPDATE redis_table SET name = %s WHERE id = %s",
+                   (generate_random_string(), random.choice(ids)))
+    conn.commit()
+    global flag
+    flag = False
 
 
 def cache_query():
     for _ in range(QUERIES_COUNT):
         with db_lock:
             start_time = time.time()
-            get_top_songs_from_cache()
+            get_top_data_from_cache()
             duration = time.time() - start_time
             cache_durations.append(duration)
         time.sleep(DELAY // 2)
@@ -122,7 +124,7 @@ def db_query():
     for _ in range(QUERIES_COUNT):
         with db_lock:
             start_time = time.time()
-            get_top_songs_from_db()
+            get_top_data_from_db()
             duration = time.time() - start_time
             db_durations.append(duration)
         time.sleep(DELAY // 2)
@@ -131,21 +133,21 @@ def db_query():
 def data_insert():
     for _ in range(QUERIES_COUNT // 2):
         with db_lock:
-            add_random_song()
+            insert_random_data()
         time.sleep(DELAY)
 
 
 def data_delete():
     for _ in range(QUERIES_COUNT // 2):
         with db_lock:
-            delete_random_song()
+            delete_random_data()
         time.sleep(DELAY)
 
 
 def data_update():
     for _ in range(QUERIES_COUNT // 2):
         with db_lock:
-            update_random_song()
+            update_random_data()
         time.sleep(DELAY)
 
 
@@ -315,10 +317,12 @@ def graph_update():
 
 
 if __name__ == '__main__':
-   graph_insert()
-   graph_just()
-   graph_delete()
-   graph_update()
-
-cursor.close()
-conn.close()
+    create_temp_table()
+    graph_insert()
+    graph_just()
+    graph_delete()
+    graph_update()
+    cursor.execute("DROP TABLE IF EXISTS redis_table")
+    conn.commit()
+    cursor.close()
+    conn.close()

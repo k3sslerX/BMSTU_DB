@@ -4,5 +4,5 @@ DB_PASS = "1337"
 DB_HOST = "localhost"
 DB_PORT = "5432"
 
-DELAY = 2
+DELAY = 10
 QUERIES_COUNT = 6
